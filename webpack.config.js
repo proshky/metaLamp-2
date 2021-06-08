@@ -24,7 +24,12 @@ const optimization = () => {
     return config
 }
 
-const filename = ext => isDev ? `[name].${ext}` : `[name].[contenthash].${ext}`
+const filename = ext => {
+    if (ext === "css"){
+       return isDev ? `styles/[name].${ext}` : `styles/[name].[contenthash].${ext}`
+    }
+   return isDev ? `[name].${ext}` : `[name].[contenthash].${ext}`
+}
 
 const cssLoaders = (extra) => {
     const loaders = [
@@ -70,6 +75,10 @@ module.exports = {
                 {
                     from: path.resolve(__dirname, "src/images"),
                     to: path.resolve(__dirname, "dist/images")
+                },
+                {
+                    from: path.resolve(__dirname, "src/fonts"),
+                    to: path.resolve(__dirname, "dist/fonts")
                 }
             ]
         }),
@@ -79,6 +88,10 @@ module.exports = {
     ],
     module: {
         rules: [
+            {
+                test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+                type: 'asset/inline',
+            },
             {
                 test: /\.css$/,
                 use: cssLoaders()

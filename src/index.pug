@@ -3,15 +3,19 @@ html
     head
         meta(charset = "utf-8")
         meta(name = "viewport", content = "initial-scale = 1.0, width = device - width")
-        title aaa
-        div(class = "container")
-            header(class = "nav")
-                img(class = "nav__logo" src = "./images/Logo.svg")
-                span О нас
-                span Услуги
-                span Вакансии
-                span Новости
-                span Соглашения
-                button Войти
-                button Зарегистрироваться
+        title Toxin
+        div(class="wrapper")
+            div(class="content")
+                header(class="header")
+                    img(class = "header__logo" src = "./images/Logo.svg")
+                    nav(class="header__items")
+                        ul(class = "header__navList")
+                            li(class = "header__navLink header__navLink_active") О нас
+                            li(class = "header__navLink") Услуги
+                            li(class = "header__navLink") Вакансии
+                            li(class = "header__navLink") Новости
+                            li(class = "header__navLink") Соглашения
+                    div(class="header__authorization")
+                        button Войти
+                        button Зарегистрироваться
         body

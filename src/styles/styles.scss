@@ -61,26 +61,81 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------*/
 @font-face {
   font-family: 'montserrat';
-  src: url('../fonts/Montserrat.eot');
-  src: local('☺'), url('../fonts/Montserrat.woff') format('woff'), url('../fonts/Montserrat.ttf') format('truetype'), url('../fonts/Montserrat.svg') format('svg');
-  font-weight: normal;
+  src: url("../fonts/montserrat-400-normal.eot");
+  src: local("☺"), url("../fonts/montserrat-400-normal.woff") format('woff'), url('../fonts/montserrat-400-normal.ttf') format('truetype'), url('../fonts/montserrat-400-normal.svg') format('svg');
+  font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: 'montserratBold';
-  src: url('../fonts/montserrat_bold.eot');
-  src: local('☺'), url('../fonts/montserrat_bold.woff') format('woff'), url('../fonts/montserrat_bold.ttf') format('truetype'), url('../fonts/montserrat_bold.svg') format('svg');
+  font-family: 'montserrat';
+  src: url('../fonts/montserrat-700-normal.eot');
+  src: local('☺'), url('../fonts/montserrat-700-normal.woff') format('woff'), url('../fonts/montserrat-700-normal.ttf') format('truetype'), url('../fonts/montserrat-700-normal.svg') format('svg');
   font-weight: 700;
   font-style: normal;
 }
 
-.container{
-  font-family: monsterrat;
+.wrapper{
+  font-family: "montserrat", sans-serif;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr minmax(320px, 1160px) 1fr;
+  grid-template-areas: ". content .";
+}
+.content{
+  grid-area: content;
 }
 
-.nav{
-  padding: 15px 0px 15px 140px;
+.header{
+  display: grid;
+  grid-template-rows: 70px;
+  grid-template-columns: 2fr 6fr 3fr;
+  grid-template-areas: "logo navList authorization";
+  background: #FFF;
+  align-items: center;
   &__logo{
-    padding-right: 285px;
+    grid-area: logo;
+  }
+  &__navList{
+  }
+  &__items{
+    grid-area: navList;
+    display:grid;
+    justify-self: end;
+  }
+  &__navLink{
+    display: inline-block;
+    padding-right: 20px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    line-height: 17.07px;
+    &_active{
+      font-weight: bold;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      color: rgba(31, 32, 65, 0.75);
+      font-weight: bold;
+    }
+  }
+  &__authorization{
+    grid-area: authorization;
+    justify-self: end;
+    button{
+      background: linear-gradient(to bottom, #BC9CFF, #8BA4F9);
+      border-radius: 20px;
+      padding: 11px 11px 9px 9px;
+      font-weight: bold;
+      font-size: 12px;
+      color: #fff;
+      text-transform: uppercase;
+    }
   }
 }
+
+
+
+
+
+
+
+
+
+
+

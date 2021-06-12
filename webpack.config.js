@@ -44,6 +44,7 @@ const cssLoaders = (extra) => {
 }
 
 module.exports = {
+    target: 'web',
     context: path.resolve(__dirname, "src"),
     mode: "development",
     entry: {
@@ -62,7 +63,7 @@ module.exports = {
     optimization: optimization(),
     devServer: {
         port: 3007,
-        open: true,
+        open: true
     },
     devtool: isDev ? "source-map" : false,
     plugins: [

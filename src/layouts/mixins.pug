@@ -1,0 +1,19 @@
+mixin authorization(isAuthorized)
+    if (isAuthorized)
+        include includes/authorized
+    else
+        include includes/notAuthorized
+
+
+mixin header(isAuthorized)
+    header.header
+        img.header__logo(src = "./images/Logo.svg")
+        nav.header__items
+            ul.header__navList
+                li.header__navLink.header__navLink_active О нас
+                li.header__navLink Услуги
+                li.header__navLink Вакансии
+                li.header__navLink Новости
+                li.header__navLink Соглашения
+        .header__authorization.authorization
+            +authorization(isAuthorized)

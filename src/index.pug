@@ -1,23 +1,54 @@
+include layouts/mixins
 doctype html
 html
     head
         meta(charset = "utf-8")
         meta(name = "viewport", content = "initial-scale = 1.0, width = device - width")
         title Toxin
-        div.wrapper
-            div(class="content")
-                header.header
-                    img.header__logo(src = "./images/Logo.svg")
-                    nav.header__items
-                        ul.header__navList
-                            li.header__navLink.header__navLink_active О нас
-                            li.header__navLink Услуги
-                            li.header__navLink Вакансии
-                            li.header__navLink Новости
-                            li.header__navLink Соглашения
-                    div.header__authorization
-                        button.authorization__login-btn
-                            span Войти
-                        button.authorization__registration-btn
-                            span Зарегистрироваться
         body
+            .wrapper
+                .content
+                    +header(false)
+                    +header(true)
+                    .footer
+                        .footer__logo
+                            img(src = "./images/Logo.svg")
+                            p Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
+                        .footer__navItem.navItem
+                            h2 Навигация
+                            ul.navItem__list
+                                li
+                                    a(href="#") О нас
+                                li
+                                    a(href="#") Новости
+                                li
+                                    a(href="#") Служба поддержки
+                                li
+                                    a(href="#") Услуги
+                        .footer__navItem.navItem
+                            h2 О нас
+                            ul.navItem__list
+                                li
+                                    a(href="#") О сервисе
+                                li
+                                    a(href="#") Наша команда
+                                li
+                                    a(href="#") Вакансии
+                                li
+                                    a(href="#") Инвесторы
+                        .footer__navItem.navItem
+                            h2 Служба поддержки
+                            ul.navItem__list
+                                li
+                                    a(href="#") Соглашения
+                                li
+                                    a(href="#") Сообщества
+                                li
+                                    a(href="#") Связь с нами
+                        .footer__subscription
+                            h2 Подписка
+                            p Получайте специальные предложения и новости сервиса
+                            form
+                                input
+                                button
+                        .copyright © 2018 Toxin отель. Все права защищены.

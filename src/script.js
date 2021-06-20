@@ -42,6 +42,7 @@ const functionMinus = (className) => {
 const clearValue = () => {
     document.querySelectorAll('.switcher__value').forEach(a => a.innerText = 0)
     document.getElementsByClassName(`dropdown__dropdownInput`)[0].defaultValue = "Сколько гостей"
+    document.querySelectorAll(`.switcher__btnMinus`).forEach(a =>  a.setAttribute("disabled", "disabled"))
 }
 
 function declOfNum(n, text_forms) {
@@ -62,14 +63,17 @@ function declOfNum(n, text_forms) {
 const toApply = () => {
     let array = []
     document.querySelectorAll(".switcher__value").forEach(a => array.push(a.innerText))
-    let arrayGuests = [Number(array[0]) + Number(array[1]), array[2]]
+    let arrayGuests = [Number(array[0]) + Number(array[1]), Number(array[2])]
     let textValueGuests = declOfNum(arrayGuests[0], ["гость", "гостя", "гостей"])
     let textValueToddlers = declOfNum(arrayGuests[1], ["младенец", "младенца", "младенцев"])
     let newValue
-    if (arrayGuests[1] != 0) {
+    if (arrayGuests[1] !== 0) {
        newValue = `${arrayGuests[0]} ${textValueGuests}, ${arrayGuests[1]} ${textValueToddlers}`
     } else {
         newValue = `${arrayGuests[0]} ${textValueGuests}`
+    }
+    if(arrayGuests[0] === 0){
+        newValue = "Сколько гостей"
     }
     document.getElementsByClassName(`dropdown__dropdownInput`)[0].defaultValue = newValue
 }

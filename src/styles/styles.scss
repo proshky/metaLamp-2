@@ -82,9 +82,43 @@ h1, h2, h3, h4, h5, h6 {
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
-  right: 0px;
-  top: 50%;
   margin: -5px -17px 0px 0px
+}
+
+%btnMinus{
+  font-size:16px;
+  background: #FFF;
+  color: rgba(31, 32, 65, 0.5);
+  position:relative;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(31, 32, 65, 0.5);
+  position: relative;
+  &::after{
+    content: "-";
+    position: absolute;
+    top: 3.5px;
+    left: 11px;
+  }
+}
+
+%btnPlus{
+  font-size:16px;
+  background: #FFF;
+  color: rgba(31, 32, 65, 0.5);
+  position:relative;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(31, 32, 65, 0.5);
+  position: relative;
+  &::after{
+    content: "+";
+    position: absolute;
+    top: 3.75px;
+    left: 9.5px;
+  }
 }
 
 @font-face {
@@ -144,13 +178,23 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: 17px;
 
     &:nth-child(2) {
-      @extend %downArrow;
       margin-right: 40.5px;
+      @extend %downArrow;
+
+      &::after {
+        right: 0px;
+        top: 50%;
+      }
     }
 
     &:nth-child(5) {
-      @extend %downArrow;
       margin-right: 42px;
+      @extend %downArrow;
+
+      &::after {
+        right: 0px;
+        top: 50%;
+      }
     }
 
     &_active {
@@ -230,28 +274,33 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .footer {
-  &__footerUp{
-  display:grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: minmax(100px, 300px) repeat(3, auto) minmax(100px, 260px);
-  margin-bottom: 100px;
+  &__footerUp {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: minmax(100px, 300px) repeat(3, auto) minmax(100px, 260px);
+    margin-bottom: 100px;
   }
-  h2{
+
+  h2 {
     font-size: 12px;
     text-transform: uppercase;
     margin: 6px 0px 19px 0px;
     font-weight: 700;
   }
-  a{
+
+  a {
     color: rgba(31, 32, 65, 0.5);
   }
-  p{
-    color:rgba(31, 32, 65, 0.75);
+
+  p {
+    color: rgba(31, 32, 65, 0.75);
     line-height: 24px;
   }
+
   &__logo {
     padding-right: 40px;
-    img{
+
+    img {
       margin-bottom: 17px;
     }
   }
@@ -263,23 +312,25 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.navItem{
-  h2{
+.navItem {
+  h2 {
     margin-bottom: 25px;
   }
-  &__list{
-    display:grid;
-    grid-gap:24px;
+
+  &__list {
+    display: grid;
+    grid-gap: 24px;
   }
 }
 
-.footerDown{
-  display:grid;
+.footerDown {
+  display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr 1fr;
   height: 70px;
   align-items: center;
-  position:relative;
+  position: relative;
+
   &::before {
     content: "";
     position: absolute;
@@ -288,20 +339,136 @@ h1, h2, h3, h4, h5, h6 {
     top: 0px;
     border: solid 1px rgba(31, 32, 65, 0.1);
   }
-  &__socialNetworkIcons{
+
+  &__socialNetworkIcons {
     justify-self: end;
   }
-  &__copyright{
-color: rgba(31, 32, 65, 0.75);
+
+  &__copyright {
+    color: rgba(31, 32, 65, 0.75);
   }
 }
 
-.socialNetworkIcons{
-  display:grid;
+.socialNetworkIcons {
+  display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
 }
+
+.textField {
+  margin-left: 1px;
+
+  input {
+    border: 1px solid rgba(31, 32, 65, 0.25);
+    border-radius: 4px;
+    height: 44px;
+    width: 320px;
+    padding-left: 14px;
+
+    &:focus {
+      border: 1px solid rgba(31, 32, 65, 0.5);
+      color: rgba(31, 32, 65, 0.75);
+    }
+
+    &:hover {
+      border: 1px solid rgba(31, 32, 65, 0.5);
+      color: rgba(31, 32, 65, 0.75);
+    }
+
+    &::placeholder {
+      color: rgba(31, 32, 65, 0.25);
+      line-height: 18px;
+      font-size: 14px;
+    }
+  }
+}
+
+.dropdown {
+
+  &__dropdownInput {
+  }
+
+  &__dropdownBtn {
+    position: relative;
+    padding: 15px;
+    @extend %downArrow;
+    background: #FFF  ;
+    &::after {
+      left: 0.85em;
+      top: 50%;
+    }
+  }
+
+  &__dropdownContent {
+    display: none;
+    text-transform: uppercase;
+    & button{
+      text-transform: uppercase;
+      background: #FFF;
+    }
+  }
+}
+
+.show {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "guests ." "children ." "toddlers ." "clear toApply";
+}
+
+.guests {
+  display:grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  grid-area: guests;
+
+  &__textfield {
+
+  }
+}
+
+.children {
+  @extend .guests;
+  grid-area: children;
+  &__textfield {
+  }
+}
+
+.toddlers {
+  @extend .guests;
+  grid-area: toddlers;
+  &__textfield {
+  }
+}
+
+.dropdown__clear {
+  grid-area: clear;
+  & button{
+    color: #BC9CFF;
+  }
+}
+
+.dropdown__toApply {
+  grid-area: toApply;
+  & button{
+    color: #BC9CFF;
+  }
+}
+
+.switcher{
+  &__btnMinus{
+    @extend %btnMinus;
+    &[disabled] {
+    border-color: rgba(31, 32, 65, 0.25);
+      color: #D4D5DB;
+    }
+  }
+  &__btnPlus{
+    @extend %btnPlus;
+  }
+}
+
 
 
 

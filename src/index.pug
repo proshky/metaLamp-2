@@ -5,8 +5,6 @@ html
         meta(charset = "utf-8")
         meta(name = "viewport", content = "initial-scale = 1.0, width = device - width")
         title Toxin
-        script
-            include script.js
         body
             .wrapper
                 .content
@@ -17,27 +15,28 @@ html
                     .dropdown
                         input.dropdown__dropdownInput(type="text" value="Сколько гостей" readonly="readonly")
                         //include layouts/includes/input
-                        button.dropdown__dropdownBtn(onclick="myFunction()")
-                        .dropdown__dropdownContent.dropdownContent#myDropdown
-                            .dropdownContent__guests.guests
-                                p.guests__textfield Взрослые
-                                .guests__switcher.switcher
-                                    button.switcher__btnMinus(disabled onclick="functionMinus(`guests`)")
-                                    span.switcher__value 555
-                                    button.switcher__btnPlus(onclick="functionPlus(`guests`)")
-                            .dropdownContent__children.children
-                                p.children__textfield Дети
-                                .children__switcher.switcher
-                                    button.switcher__btnMinus(disabled onClick="functionMinus(`children`)")
+                        button.dropdown__dropdownBtn
+                        .dropdown__dropdownContent.dropdownContent
+                            .dropdownContent__item.itemDropdownContent
+                                p.itemDropdownContent__textfield_adult Взрослые
+                                .itemDropdownContent__switcher.switcher
+                                    button.switcher__btnMinus(disabled)
                                     span.switcher__value 0
-                                    button.switcher__btnPlus( onclick="functionPlus(`children`)")
-                            .dropdown__toddlers.toddlers
-                                p.toddlers__textfield Младенцы
-                                .toddlers__switcher.switcher
-                                    button.switcher__btnMinus(disabled onclick="functionMinus(`toddlers`)")
+                                    button.switcher__btnPlus
+                            .dropdownContent__item.itemDropdownContent
+                                p.itemDropdownContent__textfield_children Дети
+                                .itemDropdownContent__switcher.switcher
+                                    button.switcher__btnMinus(disabled)
                                     span.switcher__value 0
-                                    button.switcher__btnPlus(onclick="functionPlus(`toddlers`)")
-                            .dropdown__clear
-                                button(onclick="clearValue()") Очистить
-                            .dropdown__toApply
-                                button(onclick="toApply()") Применить
+                                    button.switcher__btnPlus
+                            .dropdownContent__item.itemDropdownContent
+                                p.itemDropdownContent__textfield_toddlers Младенцы
+                                .itemDropdownContent__switcher.switcher
+                                    button.switcher__btnMinus(disabled)
+                                    span.switcher__value 0
+                                    button.switcher__btnPlus
+                            button.dropdown__clear Очистить
+                            button.dropdown__toApply Применить
+
+        script
+            include script.js

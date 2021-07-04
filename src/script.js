@@ -61,7 +61,7 @@ menu.addEventListener("click", e => {
 })
 
 
-/*document.addEventListener('click', e => {
+document.addEventListener('click', e => {
     const target = e.target
     const its_menu = target == menu || menu.contains(target)
     const its_btnMenu = target == btnMenu
@@ -69,7 +69,7 @@ menu.addEventListener("click", e => {
     if (!its_menu && !its_btnMenu && menu_is_active) {
         toggleMenu()
     }
-})*/
+})
 
 function declOfNum(n, text_forms) {
     n = Math.abs(n) % 100;
